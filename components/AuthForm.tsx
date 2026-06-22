@@ -22,7 +22,7 @@ export default function AuthForm({ mode }: { mode: "login" | "signup" }) {
     <div className="grid min-h-[calc(100dvh-var(--nav-h))] place-items-center px-4 py-10">
       <div className="glass grid w-full max-w-5xl overflow-hidden rounded-3xl lg:grid-cols-2">
         {/* Brand showcase */}
-        <div className="relative hidden flex-col justify-between bg-gradient-to-br from-rb-green-800/40 to-rb-green-900/20 p-10 lg:flex">
+        <div className="relative hidden flex-col justify-between border-r border-white/10 bg-gradient-to-br from-rb-green-900/30 via-black/20 to-black/40 p-10 lg:flex">
           <div className="flex items-center gap-2.5">
             <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-rb-green-500 to-rb-green-700">
               <Brain className="h-5 w-5 text-black" strokeWidth={2.5} />

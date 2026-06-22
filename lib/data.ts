@@ -368,6 +368,7 @@ export const interviewPosts: InterviewPost[] = [
 ];
 
 /* ---------------- PRACTICE / CONTEST PROBLEMS ---------------- */
+export type ProblemStatus = "Solved" | "Attempted" | "Todo";
 export type CodeProblem = {
   id: string;
   title: string;
@@ -378,6 +379,7 @@ export type CodeProblem = {
   examples: { input: string; output: string; explanation?: string }[];
   constraints: string[];
   starter: string;
+  status?: ProblemStatus;
 };
 
 export const practiceProblems: CodeProblem[] = [
@@ -385,6 +387,7 @@ export const practiceProblems: CodeProblem[] = [
     id: "two-sum",
     title: "Two Sum",
     difficulty: "Easy",
+    status: "Solved",
     tags: ["Array", "Hash Table"],
     acceptance: "52.4%",
     statement:
@@ -417,6 +420,7 @@ export const practiceProblems: CodeProblem[] = [
     id: "valid-parentheses",
     title: "Valid Parentheses",
     difficulty: "Easy",
+    status: "Attempted",
     tags: ["String", "Stack"],
     acceptance: "41.1%",
     statement:
@@ -428,6 +432,94 @@ export const practiceProblems: CodeProblem[] = [
     constraints: ["1 <= s.length <= 10^4", "s consists of bracket characters only."],
     starter: `function isValid(s) {
   // Write your solution here
+}`,
+  },
+  {
+    id: "best-time-stock",
+    title: "Best Time to Buy and Sell Stock",
+    difficulty: "Easy",
+    status: "Todo",
+    tags: ["Array", "DP", "Greedy"],
+    acceptance: "55.0%",
+    statement:
+      "You are given an array `prices` where `prices[i]` is the price of a given stock on the i-th day. Maximise your profit by choosing a single day to buy and a different, later day to sell. Return the maximum profit, or 0 if no profit is possible.",
+    examples: [
+      {
+        input: "prices = [7,1,5,3,6,4]",
+        output: "5",
+        explanation: "Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 5.",
+      },
+      { input: "prices = [7,6,4,3,1]", output: "0" },
+    ],
+    constraints: ["1 <= prices.length <= 10^5", "0 <= prices[i] <= 10^4"],
+    starter: `function maxProfit(prices) {
+  // Track the lowest price seen so far
+}`,
+  },
+  {
+    id: "maximum-subarray",
+    title: "Maximum Subarray",
+    difficulty: "Medium",
+    status: "Todo",
+    tags: ["Array", "DP", "Divide & Conquer"],
+    acceptance: "50.3%",
+    statement:
+      "Given an integer array `nums`, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.",
+    examples: [
+      {
+        input: "nums = [-2,1,-3,4,-1,2,1,-5,4]",
+        output: "6",
+        explanation: "The subarray [4,-1,2,1] has the largest sum 6.",
+      },
+    ],
+    constraints: ["1 <= nums.length <= 10^5", "-10^4 <= nums[i] <= 10^4"],
+    starter: `function maxSubArray(nums) {
+  // Kadane's algorithm
+}`,
+  },
+  {
+    id: "merge-two-lists",
+    title: "Merge Two Sorted Lists",
+    difficulty: "Easy",
+    status: "Todo",
+    tags: ["Linked List", "Recursion"],
+    acceptance: "63.2%",
+    statement:
+      "You are given the heads of two sorted linked lists `list1` and `list2`. Merge them into one sorted list by splicing together the nodes of the two lists, and return the head of the merged list.",
+    examples: [
+      { input: "list1 = [1,2,4], list2 = [1,3,4]", output: "[1,1,2,3,4,4]" },
+      { input: "list1 = [], list2 = [0]", output: "[0]" },
+    ],
+    constraints: [
+      "The number of nodes in both lists is in the range [0, 50].",
+      "-100 <= Node.val <= 100",
+    ],
+    starter: `function mergeTwoLists(list1, list2) {
+  // Use a dummy head and stitch nodes
+}`,
+  },
+  {
+    id: "group-anagrams",
+    title: "Group Anagrams",
+    difficulty: "Medium",
+    status: "Todo",
+    tags: ["Hash Table", "String", "Sorting"],
+    acceptance: "67.8%",
+    statement:
+      "Given an array of strings `strs`, group the anagrams together. You can return the answer in any order. An anagram is a word formed by rearranging the letters of another.",
+    examples: [
+      {
+        input: 'strs = ["eat","tea","tan","ate","nat","bat"]',
+        output: '[["bat"],["nat","tan"],["ate","eat","tea"]]',
+      },
+    ],
+    constraints: [
+      "1 <= strs.length <= 10^4",
+      "0 <= strs[i].length <= 100",
+      "strs[i] consists of lowercase English letters.",
+    ],
+    starter: `function groupAnagrams(strs) {
+  // Bucket by sorted-letter key
 }`,
   },
 ];

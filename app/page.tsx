@@ -98,8 +98,8 @@ export default function Home() {
         </div>
 
         {/* Floating brand orb */}
-        <div className="pointer-events-none mx-auto mt-16 grid h-24 w-24 place-items-center rounded-3xl bg-gradient-to-br from-rb-green-500 to-rb-green-800 shadow-[0_20px_80px_rgba(16,185,129,0.5)]">
-          <Brain className="h-12 w-12 text-black" strokeWidth={2} />
+        <div className="glass pointer-events-none mx-auto mt-16 grid h-24 w-24 place-items-center rounded-3xl">
+          <Brain className="h-11 w-11 text-rb-green-400" strokeWidth={1.75} />
         </div>
       </section>
 
