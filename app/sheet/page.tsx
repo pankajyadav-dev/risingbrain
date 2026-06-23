@@ -95,7 +95,7 @@ function TopicGroup({
         <div className="flex items-center gap-4">
           <div className="hidden h-1.5 w-32 overflow-hidden rounded-full bg-white/10 sm:block">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-rb-green-500 to-rb-green-300"
+              className="h-full rounded-full bg-rb-green-500"
               style={{ width: `${pct}%` }}
             />
           </div>

@@ -24,7 +24,7 @@ export default function AuthForm({ mode }: { mode: "login" | "signup" }) {
         {/* Brand showcase */}
         <div className="relative hidden flex-col justify-between border-r border-white/10 bg-gradient-to-br from-rb-green-900/30 via-black/20 to-black/40 p-10 lg:flex">
           <div className="flex items-center gap-2.5">
-            <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-rb-green-500 to-rb-green-700">
+            <span className="grid h-10 w-10 place-items-center rounded-xl bg-rb-green-500">
               <Brain className="h-5 w-5 text-black" strokeWidth={2.5} />
             </span>
             <span className="text-lg font-semibold">

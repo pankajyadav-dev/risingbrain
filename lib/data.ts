@@ -675,3 +675,151 @@ export const discussion: DiscussionPost[] = [
     body: "Brute force O(n²) still passes here given the constraints, but always state the optimal out loud.",
   },
 ];
+
+/* ---------------- COURSES ---------------- */
+export type CourseLevel = "Beginner" | "Intermediate" | "Advanced";
+export type Course = {
+  slug: string;
+  title: string;
+  blurb: string;
+  icon: string; // mapped to a lucide icon in CourseCard
+  level: CourseLevel;
+  lessons: number;
+  hours: number;
+  price: number; // 0 = free
+  rating: number;
+  learners: string;
+  tag: string;
+  instructor: string;
+  owned?: boolean;
+  progress?: number; // 0-100, only for owned courses
+};
+
+export const courses: Course[] = [
+  {
+    slug: "dsa-mastery",
+    title: "DSA Mastery: Patterns to Product Companies",
+    blurb:
+      "The flagship roadmap — 28 reusable patterns across 1,200+ problems, sequenced exactly the way top product companies test.",
+    icon: "ListChecks",
+    level: "Intermediate",
+    lessons: 120,
+    hours: 60,
+    price: 2999,
+    rating: 4.9,
+    learners: "32k",
+    tag: "DSA",
+    instructor: "Anjali Kumari",
+    owned: true,
+    progress: 64,
+  },
+  {
+    slug: "30-day-dsa-challenge",
+    title: "30-Day DSA Challenge",
+    blurb:
+      "Anjali's signature challenge — one focused topic a day to build unstoppable consistency before placement season.",
+    icon: "Rocket",
+    level: "Intermediate",
+    lessons: 30,
+    hours: 25,
+    price: 0,
+    rating: 4.8,
+    learners: "48k",
+    tag: "Challenge",
+    instructor: "Anjali Kumari",
+    owned: true,
+    progress: 40,
+  },
+  {
+    slug: "sql-for-interviews",
+    title: "SQL for Interviews",
+    blurb:
+      "From joins to window functions — problem, best approach and clean query side by side, tuned for data rounds.",
+    icon: "Database",
+    level: "Beginner",
+    lessons: 40,
+    hours: 18,
+    price: 0,
+    rating: 4.7,
+    learners: "21k",
+    tag: "SQL",
+    instructor: "RisingBrain Team",
+    owned: true,
+    progress: 100,
+  },
+  {
+    slug: "system-design-fundamentals",
+    title: "System Design Fundamentals",
+    blurb:
+      "Scalability, caching, sharding and real architectures — everything you need for the HLD interview round.",
+    icon: "Network",
+    level: "Advanced",
+    lessons: 48,
+    hours: 30,
+    price: 3499,
+    rating: 4.9,
+    learners: "14k",
+    tag: "System Design",
+    instructor: "Anjali Kumari",
+  },
+  {
+    slug: "low-level-design-java",
+    title: "Low-Level Design (LLD) in Java",
+    blurb:
+      "Master OOP, SOLID and design patterns through hands-on machine-coding rounds asked at product companies.",
+    icon: "Boxes",
+    level: "Advanced",
+    lessons: 36,
+    hours: 20,
+    price: 2499,
+    rating: 4.8,
+    learners: "9k",
+    tag: "LLD",
+    instructor: "RisingBrain Team",
+  },
+  {
+    slug: "dynamic-programming-deep-dive",
+    title: "Dynamic Programming Deep Dive",
+    blurb:
+      "Demystify DP with a state-first framework — from memoization basics to the hardest interview favourites.",
+    icon: "Cpu",
+    level: "Advanced",
+    lessons: 50,
+    hours: 28,
+    price: 1999,
+    rating: 4.9,
+    learners: "17k",
+    tag: "DSA",
+    instructor: "Anjali Kumari",
+  },
+  {
+    slug: "aptitude-logical-reasoning",
+    title: "Aptitude & Logical Reasoning",
+    blurb:
+      "Crisp topic theory plus timed MCQ drills to clear the very first placement filter with speed and accuracy.",
+    icon: "Calculator",
+    level: "Beginner",
+    lessons: 55,
+    hours: 22,
+    price: 0,
+    rating: 4.6,
+    learners: "27k",
+    tag: "Aptitude",
+    instructor: "RisingBrain Team",
+  },
+  {
+    slug: "interview-crash-course",
+    title: "Interview Crash Course: HR & Behavioral",
+    blurb:
+      "Nail the behavioral round — STAR stories, resume deep-dives and salary negotiation, in one weekend.",
+    icon: "MessageSquareQuote",
+    level: "Beginner",
+    lessons: 20,
+    hours: 6,
+    price: 999,
+    rating: 4.7,
+    learners: "11k",
+    tag: "Interview",
+    instructor: "Anjali Kumari",
+  },
+];

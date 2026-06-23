@@ -1,5 +1,10 @@
 import Link from "next/link";
-import { Brain, Globe, AtSign, Share2 } from "lucide-react";
+import { Brain } from "lucide-react";
+import {
+  LinkedInIcon,
+  YouTubeIcon,
+  InstagramIcon,
+} from "@/components/BrandIcons";
 
 export default function Footer() {
   return (
@@ -8,7 +13,7 @@ export default function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-3">
             <div className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-rb-green-500 to-rb-green-700">
+              <span className="grid h-9 w-9 place-items-center rounded-xl bg-rb-green-500">
                 <Brain className="h-5 w-5 text-black" strokeWidth={2.5} />
               </span>
               <span className="text-lg font-semibold">
@@ -24,6 +29,7 @@ export default function Footer() {
           <FooterCol
             title="Learn"
             links={[
+              ["Courses", "/courses"],
               ["DSA Sheets", "/sheet"],
               ["SQL Queries", "/sql"],
               ["Aptitude", "/aptitude"],
@@ -31,19 +37,21 @@ export default function Footer() {
             ]}
           />
           <FooterCol
-            title="Compete"
+            title="Community"
             links={[
-              ["Contests", "/contest"],
-              ["Interview Experiences", "/interview"],
-              ["Leaderboard", "/contest"],
+              ["Reviews", "/#reviews"],
+              ["Universities", "/#universities"],
+              ["Alumni", "/#alumni"],
+              ["FAQ", "/#faq"],
             ]}
           />
           <FooterCol
-            title="Resources"
+            title="RisingBrain"
             links={[
-              ["LeetCode", "#"],
-              ["GeeksforGeeks", "#"],
-              ["YouTube", "#"],
+              ["About the founder", "/#founder"],
+              ["YouTube", "https://www.youtube.com/@rbanjalikumari"],
+              ["LinkedIn", "https://www.linkedin.com/in/anjalikumari22/"],
+              ["Instagram", "https://www.instagram.com/rbanjali.codes/"],
             ]}
           />
         </div>
@@ -53,10 +61,29 @@ export default function Footer() {
             © {new Date().getFullYear()} RisingBrain. Built for learners. UI demo.
           </p>
           <div className="flex items-center gap-3">
-            {[Globe, AtSign, Share2].map((Icon, i) => (
+            {[
+              {
+                Icon: LinkedInIcon,
+                href: "https://www.linkedin.com/in/anjalikumari22/",
+                label: "LinkedIn",
+              },
+              {
+                Icon: YouTubeIcon,
+                href: "https://www.youtube.com/@rbanjalikumari",
+                label: "YouTube",
+              },
+              {
+                Icon: InstagramIcon,
+                href: "https://www.instagram.com/rbanjali.codes/",
+                label: "Instagram",
+              },
+            ].map(({ Icon, href, label }) => (
               <a
-                key={i}
-                href="#"
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
                 className="glass-pill grid h-9 w-9 place-items-center rounded-xl text-white/60 transition-colors hover:text-rb-green-300"
               >
                 <Icon className="h-4 w-4" />
