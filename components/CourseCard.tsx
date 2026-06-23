@@ -14,6 +14,7 @@ import {
   Users,
   ArrowRight,
 } from "lucide-react";
+import Link from "next/link";
 import { GlassCard } from "@/components/ui";
 import type { Course } from "@/lib/data";
 
@@ -40,6 +41,7 @@ export default function CourseCard({ course }: { course: Course }) {
   const completed = owned && course.progress === 100;
 
   return (
+    <Link href={`/courses/${course.slug}`} className="group block h-full">
     <GlassCard hover className="flex h-full flex-col p-6">
       <div className="mb-4 flex items-center justify-between">
         <span className="grid h-11 w-11 place-items-center rounded-2xl bg-rb-green-500/15 text-rb-green-300">
@@ -119,5 +121,6 @@ export default function CourseCard({ course }: { course: Course }) {
         </div>
       )}
     </GlassCard>
+    </Link>
   );
 }

@@ -823,3 +823,92 @@ export const courses: Course[] = [
     instructor: "Anjali Kumari",
   },
 ];
+
+/* ---- Course detail / curriculum (derived demo data) ---- */
+export type LessonType = "video" | "article" | "quiz";
+export type CourseLesson = {
+  title: string;
+  duration: string; // "12:05" or "Quiz"
+  type: LessonType;
+  preview?: boolean;
+};
+export type CourseSection = { title: string; lessons: CourseLesson[] };
+
+export function getCourseBySlug(slug: string): Course | undefined {
+  return courses.find((c) => c.slug === slug);
+}
+
+// A representative, deterministic curriculum so every course has content.
+export function getCurriculum(course: Course): CourseSection[] {
+  const durations = ["08:24", "12:05", "15:40", "06:18", "10:32", "18:50", "09:11"];
+  const plan: { title: string; lessons: string[] }[] = [
+    {
+      title: "Getting Started",
+      lessons: [
+        "Welcome & Course Roadmap",
+        "How to Get the Most Out of This Course",
+        "Setting Up Your Workspace",
+      ],
+    },
+    {
+      title: `${course.tag} Foundations`,
+      lessons: [
+        "Core Concepts & Mental Models",
+        "The Framework We'll Use Throughout",
+        "Worked Example: A Full Walkthrough",
+        "Common Mistakes to Avoid",
+      ],
+    },
+    {
+      title: "Patterns in Depth",
+      lessons: [
+        "Pattern Deep Dive I",
+        "Pattern Deep Dive II",
+        "Guided Problem Solving",
+        "Hands-on Exercise",
+      ],
+    },
+    {
+      title: "Interview Application",
+      lessons: [
+        "From Brute Force to Optimal",
+        "Mock Interview Walkthrough",
+        "Timed Drill",
+        "Section Quiz",
+      ],
+    },
+    {
+      title: "Capstone & Next Steps",
+      lessons: [
+        "Putting It All Together",
+        "Final Assessment",
+        "Where to Go From Here",
+      ],
+    },
+  ];
+
+  let d = 0;
+  return plan.map((section, si) => ({
+    title: section.title,
+    lessons: section.lessons.map((title, li) => {
+      const isQuiz = /Quiz|Assessment/.test(title);
+      return {
+        title,
+        type: isQuiz ? ("quiz" as const) : ("video" as const),
+        duration: isQuiz ? "Quiz" : durations[d++ % durations.length],
+        preview: si === 0 && li < 2,
+      };
+    }),
+  }));
+}
+
+export function getCourseOutcomes(course: Course): string[] {
+  return [
+    `Build deep intuition for ${course.tag} from the ground up`,
+    "Recognise the underlying pattern behind unfamiliar problems",
+    "Move from brute-force to optimal solutions with confidence",
+    "Communicate your approach clearly under interview pressure",
+    "Practice with timed drills that mirror real placement rounds",
+    "Earn a shareable certificate of completion",
+  ];
+}
